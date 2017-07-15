@@ -1,0 +1,124 @@
+
+
+
+<% idols.forEach(function(t, index) {%>
+
+	<div class="box-outter opacityzero">
+	
+		<div class="idol_picture" style="background-image: url('images/cardpicture/<%=t.nameen.toString().toLowerCase()%>.jpg'), url('images/cardpicturenotfound.jpg');"></div>
+	
+		<div class="nameko idol_picture_title jejugothic"><%=t.nameko%></div>
+		
+		<div class="box-inner" style="display:none;">
+
+			<div class="narrow_table jejugothic">
+				<table border="1" cellspacing="0" cellpadding="0" class="profile_table table_click">
+					<tbody>
+						<tr>
+							<td rowspan="1" scope="row" class="cell_title cell_title_right">이름</td>
+							<td colspan="3" class="cell_content word_narrow">
+								<span class="unit">(일)</span> <span class="notosansjp"><%=t.nameja%></span> <span class="unit">/ (영)</span> <%=t.nameen%></td>
+						</tr>
+						<tr>
+							<td scope="row" class="cell_title cell_title_right">CV</td>	
+							<td colspan="3" class="cell_content word_narrow"><%=t.cv%></td>
+						</tr>
+						<tr>
+							<td scope="row" class="cell_title cell_title_right">생일</td>	
+							<td colspan="3" class="cell_content"><%=t.month%> <span class="unit">월</span> <%=t.day%> <span class="unit">일</span> <span class="unit">(</span>
+								<% if (t.age < 0) {%>
+									<%= "?" %>
+								<% } else { %>
+									<%= t.age %>
+								<% } %> <span class="unit">세</span> <span class="unit">)</span></td>
+						</tr>
+						<tr>
+							<td colspan="1" class="cell_title cell_title_right word_narrow">키/체중</td>
+							<td colspan="3" class="cell_content cell_content_middle">
+								<% if (t.height < 0) { %>
+									<%= "?" %>
+								<% } else { %>
+									<%= t.height %>
+								<% } %> <span class="unit">cm</span> / <% if (t.weight < 0) { %>
+									<%= "?" %>
+								<% } else { %>
+									<%= t.weight %>
+								<% } %> <span class="unit">kg</span>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="1" class="cell_title cell_title_right">사이즈</td>
+							<td colspan="3" class="cell_content">
+								<span class="unit">B</span> <% if (t.b < 0) { %>
+									<%= "?" %>
+								<% } else { %>
+									<%= t.b %>
+								<% } %> <span class="unit">cm</span> / <span class="unit">W</span> <% if (t.w < 0) { %>
+									<%= "?" %>
+								<% } else { %>
+									<%= t.w %>
+								<% } %> <span class="unit">cm</span> / <span class="unit">H</span> <% if (t.h < 0) { %>
+									<%= "?" %>
+								<% } else { %>
+									<%= t.h %>
+								<% } %> <span class="unit">cm</span>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="1" class="cell_title cell_title_right">출신지</td>
+							<td colspan="1" class="cell_content cell_content_middle word_narrow">
+								<% if (t.areafrom != "0") {%>
+									<%=t.areafrom%></td>
+								<% } %>
+							<td colspan="1" class="cell_title cell_title_right">혈액형</td>
+							<td colspan="1" class="cell_content cell_content_middle"><%=t.bloodtype%></td>
+						</tr>
+						<tr>
+							<td colspan="1" class="cell_title cell_title_right">취미</td>
+							<td colspan="3" class="cell_content word_narrow"><%=t.hobby%></td>
+						</tr>
+						<tr>
+							<td colspan="1" class="cell_title cell_title_right">소속</td>
+							<td colspan="3" class="cell_content word_narrow">
+							    <% if (t.productionorunit != "0") { %>
+    								<% if (t.productionorunit.includes('\/\/')) { %>
+    									<% t.productionorunit.split('\/\/').forEach(function(v) { %>
+    										<%= v %><br>
+    									<% }) %>
+    								<% } else { %>
+    									<%= t.productionorunit %>
+    								<% } %>
+    							<% } else { %>
+    							    <%= "" %>
+    							<% } %>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="1" class="cell_title cell_title_right">매체</td>
+							<td colspan="3" class="cell_content word_narrow">
+								<% if (t.mediafromp_1 != "0") { %>
+									<% if (t.mediafromp_1.includes('\/\/')) { %>
+										<% t.mediafromp_1.split('\/\/').forEach(function(v) { %>
+											<%= t.mediafromp + " " + v %><br>
+										<% }) %>
+									<% } else { %>
+										<%= t.mediafromp + " " + t.mediafromp_1 %>
+									<% } %>
+								<% } else { %>
+									<%=t.mediafromp%>
+								<% } %>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>	
+	
+		<hr></hr>
+		
+	</div>
+
+
+
+<% }) %>
+

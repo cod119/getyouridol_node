@@ -1,0 +1,870 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import url(https://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+@import url(https://fonts.googleapis.com/earlyaccess/jejugothic.css);
+@import url(https://fonts.googleapis.com/earlyaccess/notosansjp.css);
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video, button {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*belows are my code*/
+/*
+@font-face {
+  font-family: 'Jeju Hallasan';
+  src: url(http://fonts.googleapis.com/earlyaccess/jejuhallasan.css) format("truetype");
+}
+*/
+
+
+
+
+html {
+	/*font-family: 'Jeju Hallasan', sans-serif;*/
+	/*font-family: 'Nanum Gothic', sans-serif;*/
+	font-size: 1rem;
+	line-height: normal;
+}
+
+html, body {
+    font-family: 'Nanum Gothic', 'sans-serif';
+	width:100%;
+	height:100%;
+	padding: 0;
+    margin: 0;
+}
+
+a {
+     background-color: transparent;
+     text-decoration: none;
+}
+
+
+
+/*result.html*/
+
+	/*.result-wrapper에 대한 설정은 .home-wrapper에 함께 되어 있음*/
+
+.box-outter {
+	display: block;
+	margin: auto auto;
+	width: 80%;
+	vertical-align: middle;
+}
+	/*background-size: cover는 그림의 너비, 높이 중 짧은 것의 길이를 cell의 길이와 같게 한다.
+	그리고 background-position: center center;로 백그라운드의 위치를 가운데로 맞추면 끝*/
+.idol_picture {
+	display: inline-block;
+	margin-top: 0.5rem;
+	width: 60%;
+	height: 5rem;
+	background-position: center top;
+	background-size: cover;
+	border: 0.5rem solid #cc3d3d;
+	border-radius: 50%;
+	
+}
+
+.idol_picture_title {
+	/*font-size: initial;*/
+	display: inline-block;
+	width: 100%;
+	font-size: 1.5rem;
+	margin: 1rem 0 0.5rem 0;
+	font-weight: bold;
+}
+	
+.table {
+	margin: auto;
+	width: 100%;
+	/*
+	border-collapse: separate;
+    border-spacing: 0.1rem;
+    */
+}
+
+.profile_table {
+	margin: auto;
+	width: 100%;
+	max-width: 30rem;
+	border-collapse: separate;
+    border-spacing: 0.2rem;
+    font-family: 'Jeju Gothic', 'Nanum Gothic', sans-serif;
+}
+.profile_table td {
+	border-radius: 0.3rem;
+}
+.profile_table .unit {
+	font-size: 0.3rem;
+}
+.profile_table .cell_content {
+	font-weight: 500;
+}
+
+.table, .cell_title, .cell_content {
+	/*border: 1px solid grey;*/
+	text-align: center;
+	vertical-align: middle;
+	background-color: white;
+}
+
+.cell_head {
+	text-align: left;
+	/*line-height: 1.9rem;*/
+	color: white;
+	background-color: #F06161;
+	padding: 0 0.5rem;
+	height: 1.9rem;
+}
+.cell_head div {
+	display: inline-block;
+}
+
+.cell_title {
+	background-color: #FFF1F1; 
+}
+.cell_title_right {
+	width: 18%;
+}
+
+	/*가운데 있는 값-cell의 폭을 조절
+	 narrow-table 용*/
+.cell_content_middle {
+	width: 45%;
+}
+	/**************/
+
+	/*태이블 가장자리 둥글게*/
+.cell_head, .cell_title, .cell_content {
+	border-radius: 0.3rem;
+}
+	/********/
+
+.cell_content {
+	font-weight: 500;
+}
+ /*search.html용 unit 설정*/
+.cell_content .unit {
+	font-weight: normal;
+	font-size: 0.7rem;
+}
+.nowloading {
+	background: url('/images/nowloading.gif') center center no-repeat white;
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 90000;
+	
+}
+
+#result_nothing {
+	display: none;
+}
+#result_nothing img {
+	width: 70%;
+}
+
+
+
+/***********wide_table 전용(폐기 예정)**(이하)************/
+
+	/*가로모드와 데스크탑 모드를 위한 .wide_table의 .cell_title 폭 조절*/
+.wide_table .cell_title {
+	width: 12%;
+}
+	/*가로모드와 데스크탑 모드를 위한 .wide_table의, 1행에 두개 이상의 값을 가진 행의 .cell_content_middle 폭 조절*/
+	/*가운데 있는 값-cell의 폭을 조절. 이게 다 출신지'브라질 리우데자네이루'때문임*/
+.wide_table .cell_content_middle1 {
+	width: 30%;
+}
+.wide_table .cell_content_middle2 {
+	width: 10%;
+}
+
+
+
+	/*그림이 배경화면으로 있는 cell에서, 배경 그림의 중앙을 출력하기 위한 코드(.picture_cell)*/
+	/*small_picture_cell의 크기는, 내용이 없어서 조정 불가했으며,
+	대신 전체 태이블의 크기를 100%으로 잡은 후, 그 안의 인접 cell(title과 content, 특히 middle_cotent의
+	가로 길이를 조정함으로써 (100-가로 길이(%))만큼의 비율이 small_picture_cell의 가로 길이가 되고,
+	높이는 각 cell의 높이의 합으로 정해짐.*/
+	/*중요한 점은, 인접 cell이 없는 단독상태의 '배경만있고 내용이 없는 cell은 화면에 출력되지 않음. 뻥 뚤리거나 안나옴*/
+	/*background-size: cover는 그림의 너비, 높이 중 짧은 것의 길이를 cell의 길이와 같게 한다.
+	그리고 background-position: center center;로 백그라운드의 위치를 가운데로 맞추면 끝*/
+.picture_cell {
+	background-size: cover;
+	background-position: center center;
+}
+	/****/
+/**************************(이상)****************************/
+
+
+
+
+
+
+/*index.html*/
+
+.navbar-wrapper {
+	position: fixed;
+	top:0;
+	left:0;
+	z-index: 90009;
+	width: 100%;
+	vertical-align: middle;
+	box-shadow: 0px .1em .2em gray;
+	overflow: hidden;
+}
+
+.navbar-wrapper .nav-item {
+	float: left;
+	color: white;
+	text-decoration: none;
+	list-style: none;
+	padding: 0.6rem 0.3rem;
+	font-size: 1.2rem;
+}
+	/*nav상의 바로가기 버튼이 전체로서는 우측으로 float되도록*/
+.navbar-wrapper .nav-list {
+	line-height: 1.9rem;
+	float: right;
+}
+
+.navbar-wrapper .nav-title {
+	float: left;
+	color: white;
+	text-decoration: none;
+	list-style: none;
+	padding: 0.6rem 0.3rem;
+	font-size: 1.5rem;
+	font-style: italic;
+	font-weight: bold;
+}
+	/*li테그중 sepator 클래스의 padding을 0으로 만들어주기 위한것. 항상 바로 위의 코드 아래에 위치해야 함. 주의할것*/
+.navbar-wrapper .nav-item.separator {
+	padding: 0.6rem 0;
+	
+}
+
+.navbar-wrapper .nav-item:hover {
+	background-color: #FFA9A9;
+	color: black;
+}
+	/*아래 두 태그는 nav상의 바로가기 버튼중 링크가 있는 것이 a태그의 특성으로 색상이 바뀌는 것을 방지*/
+.navbar-wrapper .linktext:link {
+	color: white;
+}
+.navbar-wrapper .linktext:visited {
+	color: white;
+}
+	/*하단 네비바*/
+.nav-control {
+	position: fixed;
+    right: 0;
+    bottom: 0;
+    list-style-type: none;
+    border-bottom: none;
+    border-right: none;
+    border-top: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    border-top-left-radius: 5px;
+    opacity: 0.8;
+    z-index: 90009;
+    line-height: 2.7rem;
+}
+.nav-control-btn {
+	display: inline-block;
+	width: 3.2rem;
+    height: 3rem;
+	color: white;
+	text-align: center;
+}
+.nav-control li {
+	float: left;
+}
+.nav-control #goBottomBtn {
+	border-left: 0.1rem dashed #ccc;
+}
+.nav-control-btn:hover {
+	background-color: #FFA9A9;
+	color: black;
+}
+.arrow-up-b, .arrow-down-b {
+	vertical-align: middle;
+    font-size: 1.5rem;
+}
+
+/*home.html*/
+.home-wrapper, .result-wrapper, .search-wrapper, .about-wrapper {
+	text-align: center;
+	overflow: hidden;
+	padding: 5rem 3rem;
+	line-height: 1.5em;
+}
+.home-wrapper .hello {
+	line-height: 2rem;
+	margin-top: 4rem;
+}
+.search-btn {
+	font-size: 1.5rem;
+	height: 2.5rem;
+	width: 5rem;
+	border-radius: 0.3rem;
+}
+.home-wrapper .search-btn {
+	margin: 1.6rem;
+	box-shadow: 0 2px grey;
+	width: 10rem;
+}
+.search-btn:hover {
+	background-color: #CC3D3D;
+	color: white;
+}
+
+/*about.html*/
+.about-wrapper .hello {
+	line-height: 2rem;
+	margin-top: 4rem;
+}
+
+
+/*search.html*/
+	/*search-wrapper에 대한 설정은 home-wrapper와 함께*/
+.select_box {
+	height: 2rem;
+	text-align: center;
+	border-radius: 0.3rem;
+}
+.select_box_full_length {
+	width: 100%;
+}
+.select_box_half_length {
+	width: 60%;
+}
+.cell_content_half {
+	text-align: left;
+}
+.select_field .unit {
+	/*font-weight: bold;*/
+}
+.select_box {
+	font-size: 1.2rem;
+	padding: 0 0.5rem;
+	background-color: white; 
+}
+.search-wrapper .search-btn {
+	width: 100%;
+	box-shadow: 0 2px grey;
+}
+
+.search-btn, .select_box {
+	font-family: 'Jeju Gothic', 'Nanum Gothic', sans-serif;
+	font-weight: 500;
+}
+
+.search-btn.search_additional {
+	margin-bottom: 1rem;
+	font-size: 1rem;
+	background-color: #FFF1F1;
+}
+.search-btn.search_additional:hover {
+	background-color: #CC3D3D;
+	color: white;
+}
+input[type="checkbox"] {
+	width: 1.2rem;
+	height: 1.2rem;
+	background-color: white;
+}
+
+.check_box_desc.check_box_unknown {
+	display: inline-block;
+	vertical-align: middle;
+	float: right;
+	margin: 0 0.2rem;
+	font-weight: normal;
+}
+.cell_check_box .check_box.check_box_unknown {
+	float: right;
+}
+#search_form2 tbody {
+	display: none;
+}
+.check_box_multisel_group_box {
+	text-align: left;
+	float: left;
+	margin: 0.5rem;
+}
+.check_box_multisel_indiv_box {
+	text-align: left;
+	padding: 0 2rem;
+}
+.select_box.select_box_third_length {
+	width: 100%;
+}
+
+	/* name search*/
+.idols-search input {
+  width: 100%;
+  font-size: 1em;
+  padding: 0 5%;
+  background: transparent;
+  border: 1px solid rgb(169, 169, 169);
+  border-radius: 2em;
+  outline-style: none;
+}
+
+.idols-search input:focus {
+  border: 2px solid #cc3d3d;
+}
+#idols-search-txt {
+	float: left;
+	width: 75%;
+	height: 2rem;
+}
+#idols-search-results {
+	position: absolute;
+	z-index: 5000;
+}
+#name-search-btn {
+	float: right;
+	height: 2rem;
+	width: 13%;
+	font-size: inherit;
+	border-radius: 2rem;
+}
+.float_clear {
+	clear: both;
+}
+.idols-search .results .ui-widget-content {
+  background: #fff;
+  font-size: .9em;
+  padding: .5em 0;
+  border-color: #ddd;
+  box-shadow: 0 .1em .2em rgba(187, 187, 187, 0.64);
+  line-height: 1.2;
+  max-height: 20em;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.idols-search .results .ui-menu-item {
+  font-family: 'Jeju Gothic', 'Nanum Gothic', sans-serif;
+  font-size: 1rem;
+  /*padding: .4em .6em .4em 6.2em;*/
+  padding: 1rem .6rem 1rem 6.2rem;
+  position: relative;
+  border: 0;
+  border-left: 5px solid transparent;
+  /*height: 6.5em;*/
+  height: 5em;
+}
+
+.idols-search .results .ui-state-focus {
+  background: #fff;
+  border-left-color: #cc3d3d;
+  font-weight: 300;
+}
+.idols-search .results .ui-menu-item .img {
+  position: absolute;
+  width: 6em;
+  height: 6em;
+  top: .4em;
+  left: 1.5em;
+  background-position: center center;
+  background-size: cover;
+  border-radius: 50%;
+  border: 0.2rem solid #cc3d3d;
+  overflow: hidden;
+}
+
+.idols-search .results .ui-menu-item .nameko {
+  display: block;
+  color: #555;
+}
+
+.idols-search .results .ui-menu-item .nameja {
+  display: block;
+  font-size: .8em;
+  color: #aaa;
+  margin-top: .6em;
+  letter-spacing: 1px;
+}
+
+.idols-search .results .ui-menu-item .nameen,
+.idols-search .results .ui-menu-item .cv {
+  display: block;
+  font-size: .8em;
+  color: #aaa;
+  margin-top: .5em;
+}
+
+.idols-search .results .ui-state-focus .cv,
+.idols-search .results .ui-state-focus .nameen,
+.idols-search .results .ui-state-focus .nameja,
+.idols-search .results .ui-state-focus .nameko {
+  color: #cc3d3d;
+}
+.ui-helper-hidden-accessible {
+	display: none;
+}
+/*****여기까지 name-search*******/
+
+
+/**********도구모음****************/
+.danpoong-gra {
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#cc3d3d+4,8f0222+88,6d0019+100 */
+background: #cc3d3d; /* Old browsers */
+background: -moz-linear-gradient(top, #cc3d3d 4%, #8f0222 88%, #6d0019 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, #cc3d3d 4%,#8f0222 88%,#6d0019 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, #cc3d3d 4%,#8f0222 88%,#6d0019 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc3d3d', endColorstr='#6d0019',GradientType=0 ); /* IE6-9 */
+}
+.kurenai-gra {
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#cc3d3d+4,e50043+88,6d0019+100 */
+background: #cc3d3d; /* Old browsers */
+background: -moz-linear-gradient(top, #cc3d3d 4%, #e50043 88%, #6d0019 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, #cc3d3d 4%,#e50043 88%,#6d0019 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, #cc3d3d 4%,#e50043 88%,#6d0019 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc3d3d', endColorstr='#6d0019',GradientType=0 ); /* IE6-9 */
+}
+.kurenai {
+	background-color: #d7003a;
+}
+.kurenai-down {
+	/* 아래와 같은색 background: rgb(211,43,63);*/
+	background-color: #D32B3F;
+}
+.jejugothic {
+	font-family: 'Jeju Gothic', 'Nanum Gothic', sans-serif;
+}
+.notosansjp {
+	font-family: 'Noto Sans JP', 'Nanum Ghothic';
+}
+.fontinitial {
+	font-family: initial;
+}
+.bold {
+	font-weight: bold;
+}
+.italic {
+	font-style: italic;
+}
+/*자간을 줄이기 위한 클레스*/
+.word_narrow {
+	letter-spacing: -0.05rem;
+}
+.zero_p_eight_rem {
+	font-size: 0.8rem;
+}
+.one_rem {
+	font-size: 1em;
+}
+.one_p_two_rem {
+	font-size: 1.2rem;
+}
+.one_p_five_rem {
+	font-size: 1.5rem;
+}
+.opacityzero {
+	opacity: 0;
+}
+.opacityone {
+	opacity: 1;
+}
+.width_thirty_percent {
+	width: 30%;
+}
+.absolute_font_size {
+	/*반응형 설정의 폰트 사이즈 변경(html 태그에 대한)에 영향을 받지 않도록 inline-block으로 설정
+	예컨대, html에 대해 font-size: 2.5rem을 해도, 함께 2.5배 되는 것이 아니라, 본래 크기를 유지*/
+	display: inline-block;
+}
+.text_align_left {
+	text-align: left;
+}
+.unit {
+	font-weight: normal;
+	font-size: 0.7rem;
+}
+/**********************************/
+
+/******************/
+
+/* Large desktop */
+@media (min-width: 1200px) {
+}
+ 
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 1024px) {
+
+}
+	
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+	
+}
+ 
+/* Landscape phones and down */
+@media (max-width: 480px) {
+	
+}
+
+
+/********************/
+
+
+/* #### Mobile Phones Portrait #### */
+@media screen and (max-device-width: 480px) and (orientation: portrait){
+  /* some CSS here */
+	html {
+		font-size: 2.3rem;
+	}
+	/*기본값보다 좌우 패딩이 작아짐. 모바일용*/
+	.result-wrapper, .search-wrapper, .home-wrapper {
+		padding: 3.5rem 0;
+	}
+	.box-outter {
+		width: 100%;
+	}
+
+ 	/*아래 두 클래스 .card_picture_table과 .card_picture_table_head
+ 	는 현재 상단에서 데스크탑의 경우, 전자는 relative, 후자는 absolute로 겹치게
+ 	해놓았으나, 모바일(세로모드)에서는 사진의 상단이 겹치는 것이 애매하여 이를 삭제하는
+ 	코드*/
+ 	/*.card_picture_table {
+		position: static;
+	}
+	.card_picture_table_head {
+		position: static;
+	}*/
+	/******/
+ 	
+	
+}
+
+/* #### Mobile Phones Landscape #### */
+@media screen and (max-device-width: 640px) and (orientation: landscape){
+  /* some CSS here */
+ 	html {
+		font-size: 1rem;
+	}
+
+
+}
+
+/* #### Mobile Phones Portrait or Landscape (아이폰5)#### */
+@media screen and (max-device-width: 640px){
+  /* some CSS here */
+	html {
+		font-size: 1rem;
+	}
+	
+	
+}
+
+/* #### iPhone 4+ Portrait or Landscape #### */
+/* 심지어 이 설정이 아이폰만이 아니라, 갤럭시 모바일쪽도 적용을 받는다...*/
+@media screen and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2){
+  /* some CSS here */
+  	html {
+		font-size: 2.3rem;
+	}
+	/*기본값보다 좌우 패딩이 작아짐. 모바일용*/
+	.result-wrapper, .search-wrapper, .home-wrapper {
+		padding: 4rem 1.5rem;
+	}
+	.box-outter {
+		width: 100%;
+	}
+
+ 	/*아래 두 클래스 .card_picture_table과 .card_picture_table_head
+ 	는 현재 상단에서 데스크탑의 경우, 전자는 relative, 후자는 absolute로 겹치게
+ 	해놓았으나, 모바일에서는 사진의 상단이 겹치는 것이 애매하여 이를 삭제하는
+ 	코드*/
+ 	/*.card_picture_table {
+		position: static;
+	}
+	.card_picture_table_head {
+		position: static;
+	}*/
+	/******/
+	
+ 
+}
+
+/* #### nexus6 iphone6 Portrait or Landscape #### */
+/*대부분의 모바일 랜드스캐이프 모드에 적용, 노트 시리즈도 포함*/
+@media screen and (min-device-width: 640px) and (max-device-width: 768px){
+  /* some CSS here */
+	html {
+		font-size: 1rem;
+	}
+	
+	/*아래가 새로 추가한 부분들, 한 행에 두개 뜨도록*/
+		/*아래 padding 좌우 합과, box-outter padding값, 그리고 동 width값을 더했을때 100%가 되도록 주의.*/
+	.result-wrapper, .search-wrapper, .home-wrapper {
+		padding: 4rem 5%;
+	}
+	.box-outter {
+		width: 45%;
+		height: 34rem;
+		float: left;
+		padding: 0 2.5%;
+	
+	}
+	.box-outter.box-outter-search {
+		float: none;
+		width: 50%;
+	}
+	
+}
+
+/* #### Tablets Portrait or Landscape #### */
+/*패드급 랜드스캐이프 모드에 적용*/
+@media screen and (min-device-width: 768px) and (max-device-width: 1024px){
+  /* some CSS here */
+	html {
+		font-size: 1rem;
+	}
+	
+	/*아래가 새로 추가한 부분들, 한 행에 두개 뜨도록*/
+		/*아래 padding 좌우 합과, box-outter padding값, 그리고 동 width값을 더했을때 100%가 되도록 주의.*/
+	.result-wrapper, .search-wrapper, .home-wrapper {
+		padding: 4rem 0.3%;
+	}
+	.box-outter {
+		width: 49.4%;
+		height: 34rem;
+		float: left;
+		padding: 0 0.3%;
+	
+	}
+	.box-outter.box-outter-search {
+		float: none;
+		width: 50%;
+	}
+
+}
+
+/* #### tablets nexus7 #### */
+@media screen and (min-device-width: 1024px) and (orientation: portrait){
+  /* some CSS here */
+  
+  /*지우고, 현재 모바일 중심으로 설계되어 있으니, 데스크탑 중심으로 재설계
+  반대로 설정. 즉 wide narrow 기본 display 서로 바꾸기 */
+	html {
+		font-size: 1rem;
+	}
+ 
+
+ 
+ 	/*
+	.narrow_table {
+		display: none;
+	}
+	.wide_table {
+		display: block;
+	}
+	.total {
+		width: 70%;
+		float:left
+		
+	}
+	#wide_small_picture {
+		display: block;
+		width: 30%;
+		float: right;
+	}
+	.box-inner:after {
+  		display: block;
+  		content: '';
+  		clear: both;
+	}
+	*/
+}
+
+/* #### Desktops #### */
+@media screen and (min-width: 1024px){
+  /* some CSS here */
+ 	html {
+		font-size: 1rem;
+	}
+	
+	/*아래가 새로 추가한 부분들, 한 행에 두개 뜨도록*/
+		/*아래 padding 좌우 합과, box-outter padding값, 그리고 동 width값을 더했을때 100%가 되도록 주의.*/
+	.result-wrapper, .search-wrapper, .home-wrapper {
+		padding: 4rem 0.3%;
+	}
+	.box-outter {
+		width: 32.5%;
+		height: 33rem;
+		float: left;
+		padding: 0 0.3%;
+	
+	}
+	.box-outter.box-outter-search {
+		float: none;
+		width: 50%;
+	}
+
+}

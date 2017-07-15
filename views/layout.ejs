@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GetyouridolRor</title>
+  <meta name="theme-color" content="#d7003a">
+  <link rel="stylesheet" type="text/css" href="stylesheets/index.css">
+  <script src="./javascripts/jquery.js"></script>
+  <script src="./javascripts/jquery-ui.js"></script>
+  <!--<script src="./javascripts/search.js"></script>-->
+</head>
+<body>
+	
+<!-- top으로 가기위한 엥커-->
+<a name="top"></a>
+
+<!--상단 네비바-->
+<div class="navbar-wrapper kurenai">
+	<nav class="navbar">
+		<a href="/" class="linktext"><div class="nav-title italic bold">
+			Get.Your.Idol</div></a>
+		<ui class="nav-list">
+			<a href="/" class="linktext"><li class="nav-item">Home</li></a>
+			<li class="nav-item separator">|</li>
+			<a href="/search" class="linktext"><li class="nav-item">Search</li></a>
+			<li class="nav-item separator">|</li>
+			<a href="/about" class="linktext"><li class="nav-item">About</li></a>
+		</ui>
+	</nav>
+</div>
+
+
+
+
+<%- body %>
+
+<!--하단 화살표 네비바-->
+<ul class="nav-control kurenai-down">
+	<li>
+		<a href="#top" id="goTopBtn" class="nav-control-btn">
+			<span class="arrow-up-b">▲</span>
+		</a>
+	</li>
+	<li>
+		<a href="#bottom" id="goBottomBtn" class="nav-control-btn">
+			<span class="arrow-down-b">▼</span>
+		</a>
+	</li>
+</ul>
+
+<!-- bottom으로 가기위한 엥커-->
+<a name="bottom"></a>
+</body>
+</html>

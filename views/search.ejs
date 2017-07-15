@@ -1,0 +1,366 @@
+<% layout("layout") -%>
+
+<div class="box-outter box-outter-search">
+<div class="search-wrapper">
+	<div class="text_align_left">
+		<span class="jejugothic italic absolute_font_size">▼이름으로 검색</span> <span class="unit">:: 아이돌 이름(한/영/일) or 성우 이름(한글만) 입력가능</span>
+	</div>
+	<hr></hr>
+	<div>
+	    <form action="/result" class="search_table">
+			<div class="idols-search">
+		  		<input type="text" name="name" id="idols-search-txt" placeholder="이름(한/영/일)을 입력하세요" autofocus>
+				<div class="results" id="idols-search-results"></div>
+			</div>
+			<button type="submit" id="name-search-btn" class="search-btn">검색</button>
+		</form>
+		<div class="float_clear"></div>
+	</div>
+	<hr></hr>
+	<div class="text_align_left">
+		<span class="jejugothic italic absolute_font_size">▼프로필로 검색</span> <span class="unit">:: '상세검색'을 누르면 상세입력 가능</span>
+	</div>
+	<hr></hr>
+	<form action="/result" method="get">
+		<table border="1" cellspacing="0" cellpadding="0" id="search_form" class="profile_table table table_click">
+			<thead>
+				<th colspan="4" class="cell_head kurenai">》PROFILE</th>
+			</thead>
+			<tbody>
+				<tr>
+					<td colspan="2" scope="row" class="cell_title cell_title_right">성별</td>
+					<td colspan="2" class="cell_content">
+						<div class='select_field'>
+						    <select name="gender" id="form_gender" class="select_box select_box_full_length">
+						        <option value="" selected="selected">전체</option>
+						        <option value="F">여성</option>
+						        <option value="M">남성</option>
+						    </select>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" rowspan="2" scope="row" class="cell_title cell_title_right">연령</td>
+					<td colspan="2" class="cell_content">
+						<div class='select_field'>
+						    <select name="age" id="form_age" class="select_box select_box_full_length">
+						        <option value="" selected="selected">전체</option>
+						        <option value="6-8">6-8세</option>
+						        <option value="9-11">9-11세</option>
+						        <option value="12-14">12-14세</option>
+						        <option value="15-17">15-17세</option>
+						        <option value="18-19">18-19세</option>
+						        <option value="20-24">20-24세</option>
+						        <option value="25-29">25-29세</option>
+						        <option value="30-34">30-34세</option>
+						        <option value="35-40">35-40세</option>
+						        <option value="5-41">그 외</option>
+						    </select>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" class="cell_content cell_check_box cbox">
+						<label><input type="checkbox" name="ageUnknown" value="1" checked="checked" class="check_box check_box_unknown">
+						<span class="check_box_desc check_box_unknown">연령불명 포함</span></label>
+					</td>
+				</tr>
+				<tr class='select_field'>
+					<td colspan="2" rowspan="2" scope="row" class="cell_title cell_title_right">신장</td>
+					
+					<td colspan="1" class="cell_content cell_content_half">
+						
+						<select name="heightMin" id="form_heightMin" class="select_min select_box select_box_half_length">
+							<% for (var i = 0; i < heightMinRangeArray.length; i++) { %>
+								<% if (i === 0) { %>
+									<option value="<%= heightMinRangeArray[i] %>" selected="selected"><%= heightMinRangeArray[i] %></option>
+								<% } else {%>
+									<option value="<%= heightMinRangeArray[i] %>"><%= heightMinRangeArray[i] %></option>
+								<% } %>
+							<% } %>
+						</select>
+						<span class="unit">cm 이상</span>
+						
+					</td>
+					<td colspan="1" class="cell_content cell_content_half">
+					
+						<select name="heightMax", id="form_heightMax", class="select_max select_box select_box_half_length">
+							<% for (var i = 0; i < heightMaxRangeArray.length; i++) { %>
+								<% if (i === heightMaxRangeArray.length - 1) { %>
+									<option value="<%= heightMaxRangeArray[i] %>" selected="selected"><%= heightMaxRangeArray[i] %></option>
+								<% } else { %>
+									<option value="<%= heightMaxRangeArray[i] %>"><%= heightMaxRangeArray[i] %></option>
+								<% } %>
+							<% } %>
+						</select>
+						<span class="unit">cm 미만</span>
+						
+					</td>
+					
+				</tr>
+				<tr>
+					<td colspan="2" class="cell_content cell_check_box cbox">
+						<label><input type="checkbox" name="heightUnknown" value="1" checked="checked" class="check_box check_box_unknown">
+						<span class="check_box_desc check_box_unknown">신장불명 포함</span></label>
+					</td>
+				</tr>
+				<tr class='select_field'>
+					<td colspan="2" rowspan="2" scope="row" class="cell_title cell_title_right">체중</td>	
+					<td class="cell_content cell_content_half">
+						<select name="weightMin" id="form_weightMin", class="select_min select_box select_box_half_length">
+							<% for (var i = 0; i < weightMinRangeArray.length; i++) { %>
+								<% if (i === 0) { %>
+									<option value="<%= weightMinRangeArray[i] %>" selected="selected"><%= weightMinRangeArray[i] %></option>
+								<% } else {%>
+									<option value="<%= weightMinRangeArray[i] %>"><%= weightMinRangeArray[i] %></option>
+								<% } %>
+							<% } %>
+						</select>
+						<span class="unit">kg 이상</span>
+					</td>
+					<td colspan="1" class="cell_content cell_content_half">
+						<select name="weightMax" id="form_weightMax" class="select_max select_box select_box_half_length">
+							<% for (var i = 0; i < weightMaxRangeArray.length; i++) { %>
+								<% if (i === weightMaxRangeArray.length - 1) { %>
+									<option value="<%= weightMaxRangeArray[i] %>" selected="selected"><%= weightMaxRangeArray[i] %></option>
+								<% } else {%>
+									<option value="<%= weightMaxRangeArray[i] %>"><%= weightMaxRangeArray[i] %></option>
+								<% } %>
+							<% } %>
+						</select>
+						<span class="unit">kg 미만</span>
+					
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" class="cell_content cell_check_box cbox">
+						<label><input type="checkbox" name="weightUnknown" value="1" checked="checked" class="check_box check_box_unknown">
+						<span class="check_box_desc check_box_unknown">체중불명 포함</span></label>
+					</td>
+				</tr>
+				<tr class='select_field'>
+					<td colspan="1" rowspan="4" scope="row" class="cell_title">사이즈</td>
+					<td colspan="1" scope="row" class="cell_title cell_title_half">B</td>
+					<td class="cell_content cell_content_half">
+						
+						<select name="bMin" id="form_bMin" class="select_min select_box select_box_half_length">
+							<% for(var i = 0; i < bMinRangeArray.length; i++) { %>
+								<% if (i === 0) { %>
+									<option value="<%= bMinRangeArray[i] %>" selected="selected"><%= bMinRangeArray[i] %></option>
+								<% } else {%>
+									<option value="<%= bMinRangeArray[i] %>"><%= bMinRangeArray[i] %></option>
+								<% } %>
+							<% } %>
+						</select>
+						<span class="unit">cm 이상</span>
+					
+					</td>
+					<td colspan="1" class="cell_content cell_content_half">
+						
+						<select name="bMax" id="form_bMax" class="select_max select_box select_box_half_length">
+							<% for(var i = 0; i < bMaxRangeArray.length; i++) { %>
+								<% if (i === bMaxRangeArray.length - 1) { %>
+									<option value="<%= bMaxRangeArray[i] %>" selected="selected"><%= bMaxRangeArray[i] %></option>
+								<% } else {%>
+									<option value="<%= bMaxRangeArray[i] %>"><%= bMaxRangeArray[i] %></option>
+								<% } %>
+							<% } %>
+						</select>
+						<span class="unit">cm 미만</span>
+					
+					</td>
+				</tr>
+				<tr class='select_field'>
+					<td colspan="1" scope="row" class="cell_title cell_title_half">W</td>
+					<td class="cell_content cell_content_half">
+						
+						<select name="wMin" id="form_wMin" class="select_min select_box select_box_half_length">
+							<% for(var i = 0; i < wMinRangeArray.length; i++) { %>
+								<% if (i === 0) { %>
+									<option value="<%= wMinRangeArray[i] %>" selected="selected"><%= wMinRangeArray[i] %></option>
+								<% } else {%>
+									<option value="<%= wMinRangeArray[i] %>"><%= wMinRangeArray[i] %></option>
+								<% } %>
+							<% } %>
+						</select>
+						<span class="unit">cm 이상</span>
+					
+					</td>
+					<td colspan="1" class="cell_content cell_content_half">
+						
+						<select name="wMax" id="form_wMax" class="select_max select_box select_box_half_length">
+							<% for(var i = 0; i < wMaxRangeArray.length; i++) { %>
+								<% if (i === wMaxRangeArray.length - 1) { %>
+									<option value="<%= wMaxRangeArray[i] %>" selected="selected"><%= wMaxRangeArray[i] %></option>
+								<% } else {%>
+									<option value="<%= wMaxRangeArray[i] %>"><%= wMaxRangeArray[i] %></option>
+								<% } %>
+							<% } %>
+						</select>
+						<span class="unit">cm 미만</span>
+					
+					</td>
+				</tr>
+				<tr class='select_field'>
+					<td colspan="1" scope="row" class="cell_title cell_title_half">H</td>
+					<td class="cell_content cell_content_half">
+						
+						<select name="hMin" id="form_hMin" class="select_min select_box select_box_half_length">
+							<% for(var i = 0; i < hMinRangeArray.length; i++) { %>
+								<% if (i === 0) { %>
+									<option value="<%= hMinRangeArray[i] %>" selected="selected"><%= hMinRangeArray[i] %></option>
+								<% } else {%>
+									<option value="<%= hMinRangeArray[i] %>"><%= hMinRangeArray[i] %></option>
+								<% } %>
+							<% } %>
+						</select>
+						<span class="unit">cm 이상</span>
+					
+					</td>
+					<td colspan="1" class="cell_content cell_content_half">
+						
+						<select name="hMax" id="form_hMax" class="select_max select_box select_box_half_length">
+							<% for(var i = 0; i < hMaxRangeArray.length; i++) { %>
+								<% if (i === hMaxRangeArray.length - 1) { %>
+									<option value="<%= hMaxRangeArray[i] %>" selected="selected"><%= hMaxRangeArray[i] %></option>
+								<% } else {%>
+									<option value="<%= hMaxRangeArray[i] %>"><%= hMaxRangeArray[i] %></option>
+								<% } %>
+							<% } %>
+						</select>
+						<span class="unit">cm 미만</span>
+					
+					</td>
+				</tr>
+				<tr>
+					<td colspan="1" scope="row" class="cell_title cell_title_half"></td>
+					<td colspan="2" class="cell_content cell_check_box cbox">
+						<label><input type="checkbox" name="bwhUnknown" value="1" checked="checked" class="check_box check_box_unknown">
+						<span class="check_box_desc check_box_unknown">사이즈불명 포함</span></label>
+					</td>
+				</tr>
+				<tr id="productionorunit_cell_1">
+					<td colspan="2" scope="row" class="cell_title cell_title_right">소속</td>
+					<td colspan="2" class="cell_content">
+						<div class='select_field'>
+							<select name="productionorunit" id="form_productionorunit" class="select_box select_box_full_length">
+								<option value="" selected="selected">전체</option>
+								<% Object.keys(mediafromp_1).forEach(function(key, index) { %>
+									<optgroup label="<%= key %>">
+									<% for (var i = 0; i < mediafromp_1[key].length; i++) { %>
+										<option value="<%= mediafromp_1[key][i] %>"><%= mediafromp_1[key][i] %></option>
+									<% } %>
+									</optgroup>
+								<% }) %>
+							</select>	
+						</div>
+					</td>
+				</tr>
+			
+			</tbody>
+		</table>
+		
+		<!--추가 검색-->
+		<table border="1" cellspacing="0" cellpadding="0" id="search_form2" class="profile_table table table_click">
+			<thead>
+				<th colspan="8" class=""><button type="button" class="search-btn search_additional">상세검색하기</button></th>
+			</thead>
+			<tbody>
+			
+				<tr class='select_field'>
+					<td colspan="2" rowspan="1" scope="row" class="cell_title cell_title_right">헤어</br>스타일</td>	
+					<td colspan="2" class="cell_content cell_content_third">
+						<span class="unit">색상</span></br>
+						<select name="hairstyle" id="" class="select_box select_box_third_length">
+							<option value="" selected="selected">미선택</option>
+							<% for(var i = 0; i < hairstyle.length; i++) { %>
+								<option value="<%= hairstyle[i] %>"><%= hairstyle[i] %></option>
+							<% } %>
+						</select>
+
+					</td>
+					<td colspan="2" class="cell_content cell_content_third">
+						<span class="unit">스타일</span></br>
+						<select name="hairstyle2" id="" class="select_box select_box_third_length">
+							<option value="" selected="selected">미선택</option>
+							<% for(var i = 0; i < hairstyle2.length; i++) { %>
+								<option value="<%= hairstyle2[i] %>"><%= hairstyle2[i] %></option>
+							<% } %>
+						</select>
+
+					</td>
+					<td colspan="2" class="cell_content cell_content_third">
+						<span class="unit">머릿결</span></br>
+						<select name="hairstyle3" id="" class="select_box select_box_third_length">
+							<option value="" selected="selected">미선택</option>
+							<% for(var i = 0; i < hairstyle3.length; i++) { %>
+								<option value="<%= hairstyle3[i] %>"><%= hairstyle3[i] %></option>
+							<% } %>
+						</select>
+
+					</td>
+				</tr>
+				<tr class='select_field'>
+					<td colspan="2" rowspan="1" scope="row" class="cell_title cell_title_right">기타</td>	
+					<td colspan="2" class="cell_content cell_content_third">
+						<span class="unit">특징1</span></br>
+						<select name="feature" id="" class="select_box select_box_third_length">
+							<option value="" selected="selected">미선택</option>
+							<% for(var i = 0; i < feature.length; i++) { %>
+								<option value="<%= feature[i] %>"><%= feature[i] %></option>
+							<% } %>
+						</select>
+
+					</td>
+					<td colspan="2" class="cell_content cell_content_third">
+						<span class="unit">특징2</span></br>
+						<select name="feature2" id="" class="select_box select_box_third_length">
+							<option value="" selected="selected">미선택</option>
+							<% for (var i = 0; i < feature.length; i++) { %>
+								<option value="<%= feature[i] %>"><%= feature[i] %></option>
+							<% } %>
+						</select>
+
+					</td>
+					<td colspan="2" class="cell_content cell_content_third">
+						<span class="unit">특징3</span></br>
+						<select name="feature3" id="" class="select_box select_box_third_length">
+							<option value="" selected="selected">미선택</option>
+							<% for (var i = 0; i < feature.length; i++) { %>
+								<option value="<%= feature[i] %>"><%= feature[i] %></option>
+							<% } %>
+						</select>
+
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" scope="row" class="cell_title cell_title_right">소속</td>
+					<td colspan="6" class="cell_content">
+						<div class='select_field'>
+							<% Object.keys(mediafromp_1).map(function(key, index) { %>
+								<div class="check_box_multisel_group_box">
+									<label><input type="checkbox" name="productionorunit_multisel_group" value="0" checked="checked" class="check_box check_box_multisel_group">
+									<span class="check_box_desc"><%= key %></span></label>
+									<div class="check_box_multisel_indiv_box">
+										<% for (var i = 0; i < mediafromp_1[key].length; i++) { %>
+											<label><input type="checkbox" name="productionorunit_multisel[]" value="<%= mediafromp_1[key][i] %>" checked="checked" class="check_box check_box_multisel_indiv"/>
+												<span class="check_box_desc"><%= mediafromp_1[key][i] %></span></label></br>
+										<% } %>
+									</div>
+								</div>
+							<% }) %>
+						</div>
+					</td>
+				</tr>
+			</body>
+		</table>
+	
+	<hr></hr>			
+	
+	<button type="submit" class="search-btn">검색</button>
+	
+	</form>	
+	
+	
+
+<script src="/javascripts/search.js" type="text/javascript"></script>
