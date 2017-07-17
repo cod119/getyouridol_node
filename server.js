@@ -6,8 +6,7 @@ var bodyParser = require("body-parser");
 var engine = require("ejs-locals");
 var app = express();
 
-// var port = process.env.PORT || 8080;
-var port = 8001;
+var port = process.env.PORT || 8080;
 var ip = process.env.IP || "localhost";
 var controller = require(__dirname + "/controllers/server.js");
 
@@ -31,6 +30,6 @@ app.use(express.static(__dirname + "/public"));
 app.use("/", require("./routes/index"));
 
 /* Launch Server */
-var server = app.listen(port, function() {
+var server = app.listen(port, ip, function() {
   console.log("Express listening on port ", port);
 });
