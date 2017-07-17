@@ -30,6 +30,6 @@ app.use(express.static(__dirname + "/public"));
 app.use("/", require("./routes/index"));
 
 /* Launch Server */
-var server = app.listen(port, ip, function() {
+var server = app.listen(port, function() {
   console.log("Express listening on port ", port);
 });
