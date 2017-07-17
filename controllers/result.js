@@ -84,7 +84,7 @@ output.idols = function(params) {
         result = result.filter(function(v) {
             return v["h"] >= params.hMin && v["h"] < params.hMax || v["h"] < 0;
         });
-        console.log("result is", result);
+        
         //소속사
         if (params.productionorunit !== "") {
             result = result.filter(function(v) {
