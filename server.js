@@ -7,7 +7,8 @@ var engine = require("ejs-locals");
 var app = express();
 
 var port = process.env.PORT || 8080;
-var ip = process.env.IP || "localhost";
+// var ip = process.env.IP || "localhost";
+var ip = "0.0.0.0";
 var controller = require(__dirname + "/controllers/server.js");
 
 /* Setup express application */
@@ -30,6 +31,6 @@ app.use(express.static(__dirname + "/public"));
 app.use("/", require("./routes/index"));
 
 /* Launch Server */
-var server = app.listen(port, function() {
-  console.log("Express listening on port ", port);
+var server = app.listen(port, ip function() {
+  console.log("Express listening on port ", port, "at", ip);
 });
