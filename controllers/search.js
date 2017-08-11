@@ -1,4 +1,4 @@
-var helper = require(__dirname + "/helper.js");
+var helper = require("./helper.js");
 var data = global.db;
 
 var output = {};
