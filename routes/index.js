@@ -105,7 +105,7 @@ router.post("/upload", function(req, res) {
         
       } else if (type === "application/octet-stream" && filename.indexOf("json") > 0) {
         newpath += __dirname + "/../db/";
-        fs.rename(oldpath, newpath + "namuami.json", function(err) {
+        fs.rename(oldpath, newpath + "namuami.json.js", function(err) {
           /* Load DB */
           // console.log(global.db)
           var db = require("../db");
