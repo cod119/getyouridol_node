@@ -8,8 +8,8 @@ var session = require("express-session");
 var engine = require("ejs-locals");
 var app = express();
 
-//var port = process.env.PORT || 8080;
-//var ip = process.env.IP || "localhost";
+// var port = process.env.PORT || 8080;
+// var ip = process.env.IP || "localhost";
 var port = 80;
 var ip = "0.0.0.0";
 

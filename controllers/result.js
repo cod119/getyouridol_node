@@ -33,10 +33,12 @@ output.idols = function(params) {
             })
         }
         if (params.age && params.age !== "" && params.age !== "5-41") {
+            var ageMMarray = params.age.split("-");
             result = result.filter(function(v) {
                 return v["age"] >= ageMMarray[0] && v["age"] <= ageMMarray[1] || v["age"] < 0;
             })
         } else if (params.age === "5-41") {
+            var ageMMarray = params.age.split("-");
             result = result.filter(function(v) {
                 return v["age"] <= ageMMarray[0] || v["age"] >= ageMMarray[1];
             })
