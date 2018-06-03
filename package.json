@@ -3,7 +3,10 @@
   "version": "0.0.0",
   "description": "",
   "main": "server.js",
-  "scripts": "node server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "forever start -l /var/forever-logs/getyouridol-forever.log -a -o /var/forever-logs/getyouridol-out.log -a -e /var/forever-logs/getyouridol-err.log -a /var/getyouridol/server.js"
+  },
   "repository": "",
   "author": "",
   "dependencies": {
